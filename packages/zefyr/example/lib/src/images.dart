@@ -16,10 +16,13 @@ class CustomImageDelegate implements ZefyrImageDelegate<ImageSource> {
 
   @override
   ImageSource get gallerySource => ImageSource.gallery;
+  
 
   @override
   Future<String> pickImage(ImageSource source) async {
-    final file = await ImagePicker.pickImage(source: source);
+    final pickedFile = await ImagePicker().getImage(source: source);
+    final file = File(pickedFile.path);
+    // final file = await ImagePicker.pickImage(source: source);
     if (file == null) return null;
     return file.uri.toString();
   }
