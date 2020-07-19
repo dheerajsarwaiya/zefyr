@@ -10,6 +10,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_link_preview/flutter_link_preview.dart';
 import 'package:notus/notus.dart';
 import 'package:metadata_fetch/metadata_fetch.dart';
+import 'package:universal_platform/universal_platform.dart';
 import 'editable_box.dart';
 import 'horizontal_rule.dart';
 import 'image.dart';
@@ -68,7 +69,8 @@ class _ZefyrLineState extends State<ZefyrLine> {
       content = buildEmbed(context, scope);
     } else {
       assert(widget.style != null);
-      if (widget.node.children.isNotEmpty) {
+      if (widget.node.children.isNotEmpty && !UniversalPlatform.isWeb) {
+        
         final TextNode segment = widget.node.children.first;
         if (segment.style.contains(NotusAttribute.link)) {
           return FutureBuilder(
@@ -167,83 +169,7 @@ class _ZefyrLineState extends State<ZefyrLine> {
                   text: buildText(context, scope),
                 );
               });
-          // print(data
-          //     .description); // Flutter is Google's UI toolkit for crafting beautiful...
-
-          // print(data.image);
-          // print(segment.style.get(NotusAttribute.link).value);
-
-          // return Container(
-          //   child: FlutterLinkPreview(
-          //     url: segment.style.get(NotusAttribute.link).value,
-          //     key: ValueKey(segment.value),
-          //     builder: (_info) {
-          //       if (_info == null || _info.title == '') {
-          //         return ZefyrRichText(
-          //           node: widget.node,
-          //           text: buildText(context, scope),
-          //         );
-          //       } else {
-          //         if (_info is ImageInfo) {
-          //           return CachedNetworkImage(
-          //             imageUrl: (_info as ImageInfo).url,
-          //             fit: BoxFit.contain,
-          //           );
-          //         }
-
-          //         final hasDescription =
-          //             WebAnalyzer.isNotEmpty(_info.description);
-          //         final Color iconColor = Colors.blue;
-          //         // print(_info.title);
-          //         return Column(
-          //           crossAxisAlignment: CrossAxisAlignment.start,
-          //           children: <Widget>[
-          //             Row(
-          //               children: <Widget>[
-          //                 if (WebAnalyzer.isNotEmpty(_info.icon))
-          //                   CachedNetworkImage(
-          //                     imageUrl: _info.icon,
-          //                     fit: BoxFit.contain,
-          //                     width: 30,
-          //                     height: 30,
-          //                   )
-          //                 else
-          //                   Icon(Icons.link, size: 30, color: iconColor),
-          //                 const SizedBox(width: 8),
-          //                 Expanded(
-          //                   child: Text(
-          //                     _info.title,
-          //                     overflow: TextOverflow.ellipsis,
-          //                     style: TextStyle(
-          //                         color: Colors.blue,
-          //                         fontSize: 18,
-          //                         fontWeight: FontWeight.w600),
-          //                   ),
-          //                 ),
-          //               ],
-          //             ),
-          //             if (hasDescription) const SizedBox(height: 8),
-          //             if (hasDescription)
-          //               Text(
-          //                 _info.description,
-          //                 maxLines: 4,
-          //                 overflow: TextOverflow.ellipsis,
-          //                 style: TextStyle(
-          //                     color: Colors.black,
-          //                     fontSize: 14,
-          //                     fontWeight: FontWeight.normal),
-          //               ),
-          //           ],
-          //         );
-          //       }
-          //     },
-          //   ),
-          // );
-          // content = ZefyrRichText(
-          //   node: widget.node,
-          //   text: buildText(context, scope),
-          // );
-
+          
         } else {
           content = ZefyrRichText(
             node: widget.node,
