@@ -11,4 +11,7 @@ This project has two extra features on top of zefyr version 0.11.0
                         xx:xx,
                         attrDelegate: CustomAttrDelegate(),
                       ),```
+        You can find CustomAttrDelegate code here
+        https://github.com/dheerajsarwaiya/zefyr/blob/master/packages/zefyr/example/lib/src/custom_attr_delegate.dart
+        
 2. I have added a link preview feature (it doesn't work on Flutter Web because of CORS issue, otherwise it is perfect)
