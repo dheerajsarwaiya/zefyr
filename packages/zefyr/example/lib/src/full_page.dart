@@ -5,6 +5,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:example/src/custom_attr_delegate.dart';
 import 'package:flutter/material.dart';
 import 'package:quill_delta/quill_delta.dart';
 import 'package:zefyr/zefyr.dart';
@@ -89,13 +90,14 @@ class _FullPageEditorScreenState extends State<FullPageEditorScreen> {
           mode: _editing ? ZefyrMode.edit : ZefyrMode.select,
           imageDelegate: CustomImageDelegate(),
           keyboardAppearance: _darkTheme ? Brightness.dark : Brightness.light,
+          attrDelegate: CustomAttrDelegate(),
         ),
       ),
     );
     if (_darkTheme) {
       return Theme(data: ThemeData.dark(), child: result);
     }
-    return Theme(data: ThemeData(primarySwatch: Colors.cyan), child: result);
+    return Theme(data: ThemeData(primarySwatch: Colors.red), child: result);
   }
 
   void handlePopupItemSelected(value) {

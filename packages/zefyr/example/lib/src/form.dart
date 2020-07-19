@@ -53,7 +53,7 @@ class _FormEmbeddedScreenState extends State<FormEmbeddedScreen> {
     if (_darkTheme) {
       return Theme(data: ThemeData.dark(), child: result);
     }
-    return Theme(data: ThemeData(primarySwatch: Colors.cyan), child: result);
+    return Theme(data: ThemeData(primarySwatch: Colors.red), child: result);
   }
 
   Widget buildEditor() {
