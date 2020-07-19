@@ -123,7 +123,6 @@ class _ZefyrLineState extends State<ZefyrLine> {
                           flex:1,
                           child: CachedNetworkImage(imageUrl: data.image)),
                         SizedBox(width:4),
-                        
                         Expanded(
                           flex: 4,
                                                   child: Column(
@@ -136,26 +135,31 @@ class _ZefyrLineState extends State<ZefyrLine> {
                                 text:TextSpan(
                                   text: data?.title,
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 17,
                                     color: Colors.black,
-                                    fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.w600,
                                   ),
                                    recognizer: recognizer,
                                 )
                               ),
                               if(data?.description!=null&&data?.description!=''&&data?.description!=segment.style.get(NotusAttribute.link).value)
-                              Text(data?.description,
+                              RichText(
                                 maxLines: 4,
                                 overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    // color: Colors.black,
+                                text:TextSpan(
+                                  text: data?.description,
+                                  style: TextStyle(
                                     fontSize: 14,
-                                    fontWeight: FontWeight.normal),
+                                    color: Colors.black87,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                   recognizer: recognizer,
+                                )
                               ),
-                              ZefyrRichText(
-                                  node: widget.node,
-                                  text: buildText(context, scope),
-                                ),
+                              // ZefyrRichText(
+                              //     node: widget.node,
+                              //     text: buildText(context, scope),
+                              //   ),
                             ],
                           ),
                         ),
