@@ -9,8 +9,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_link_preview/flutter_link_preview.dart';
 import 'package:notus/notus.dart';
-import 'package:universal_platform/universal_platform.dart';
-import 'package:zefyr/src/widgets/youtube_local_player.dart';
 import 'package:metadata_fetch/metadata_fetch.dart';
 import 'editable_box.dart';
 import 'horizontal_rule.dart';
