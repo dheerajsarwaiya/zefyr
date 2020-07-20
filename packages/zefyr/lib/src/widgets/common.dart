@@ -7,7 +7,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_link_preview/flutter_link_preview.dart';
 import 'package:notus/notus.dart';
 import 'package:metadata_fetch/metadata_fetch.dart';
 import 'package:universal_platform/universal_platform.dart';
@@ -19,19 +18,6 @@ import 'scope.dart';
 import 'theme.dart';
 // import 'package:zefyr/src/widgets/attr_delegate.dart';
 
-/// Image Information
-class ImageInfo extends InfoBase {
-  final String url;
-
-  ImageInfo({this.url});
-}
-
-/// Video Information
-class VideoInfo extends InfoBase {
-  final String url;
-
-  VideoInfo({this.url});
-}
 
 /// Represents single line of rich text document in Zefyr editor.
 class ZefyrLine extends StatefulWidget {

@@ -83,6 +83,14 @@ class _FullPageEditorScreenState extends State<FullPageEditorScreen> {
           )
         ],
       ),
+      // body: Container(
+      //   child: ZefyrView(
+      //     document: NotusDocument.fromDelta(getDelta()),
+      //     imageDelegate: CustomImageDelegate(),
+      //     attrDelegate: CustomAttrDelegate(),
+      //   ),
+      // ),
+
       body: ZefyrScaffold(
         child: ZefyrEditor(
           controller: _controller,
